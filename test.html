@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<!--
+		Final Project
+		Author: Logan Knipp
+		Date: 12-12-17
+		
+		Displays tutorial information about troubleshooting PC issues after you first build it.
+	-->
+	<title>Building a PC! - Test!</title>
+	<meta charset="utf-8">
+	<!-- Links the CSS file with the HTML file.  -->
+	<link rel="stylesheet" href="computer.css"> 
+</head>
+	
+	<!-- Uses the "wrapper" id from the CSS file to center the entire webpage.  -->
+	<div id="wrapper"> 
+	
+<body>
+	<!-- Displays a banner image at the top of the webpage, which has an image map attached.  -->
+	<header>
+		<img src="images/banner.png" id="banner" alt="Build a PC! logo" usemap="#bannermap">
+			<map name="bannermap">
+				<area shape="rect" coords="67,17,346,241" href="index.html" alt="Home">
+				<area shape="rect" coords="620,28,880,227" href="mypc.html" alt="Custom PC">
+			</map>
+	</header>
+	
+	 <!-- The navigation bar of the website, with links to each page.  -->
+	<nav>
+		<a href="index.html">Home</a> &nbsp; 
+		<a href="start.html">Start Building!</a> &nbsp; 
+		<a href="mypc.html">My Custom PC</a> &nbsp; 
+		<a href="about.html">About Me</a> &nbsp; 
+		<a href="contact.html">Contact Me</a>
+	</nav>
+	
+	<!-- The main section of the webpage, using paragraph, break, and list elements to format the needed troubleshooting information, as well as images for extra help. -->
+	<main> 
+		
+		<!-- The navigation box for the tutorial pages. This will allow users to jump to whichever part they need help installing.  -->
+		<div id="tutorialnav">
+			<ul>
+				<li><a href="start.html">-Before You Start-</a></li>
+				<li><a href="psu.html">-Installing Power Supply-</a></li>
+				<li><a href="cpu.html">-Installing CPU-</a></li> 
+				<li><a href="ram.html">-Installing RAM-</a></li>
+				<li><a href="mobo.html">-Installing Motherboard-</a></li>
+				<li><a href="gpu.html">-Installing Graphics Card (OPTIONAL)-</a></li>
+				<li><a href="drives.html">-Installing Drives-</a></li>
+				<li><a href="cables.html">-Plugging It All In-</a></li>
+				<li><a href="test.html">-Test!-</a></li>
+			</ul>
+		</div>
+		
+		<h2>Test Your New PC!</h2>
+		<p>Your PC is now finished! Before I continue, I want to say that this tutorial is only for hardware. I will not be covering software installation here. If your hard drive does not have an operating system, I cannot help you here.
+			<br>
+			<br>
+			You may need some of the tools here, as you may need to check on cables and other things if something does not work.
+			<br>
+			<br>
+			This guide will not be teaching you, but giving you tips on what to look for if you PC does not work when you turn it on.
+			<br>
+			<br>
+		</p>
+			<h3>Tips:</h3>
+			<ol>
+				<li>Turn on your PC by pushing the power button.</li>
+				<li>If it does not turn on, first flip the switch on the back of the power supply to the "O" shape. This is the "on" switch for power to the PC. Press the power button again.</li>
+				<li>If the PC still does not turn on, flip the switch again and unplug the cable. Check any cables inside the PC. The biggest problems could be the CPU cable, the motherboard cable, or a hard drive cable. Test all of those first.</li>
+				<li>If you are still having issues, make sure the RAM is properly seated in the slot.</li>
+				<li>Beyond this, there is little else to test. Just make sure every single part is plugged in and properly placed. If it isn't any other issue, you may have a damaged component. Refer to a specialist for help on narrowing down the damaged part.</li>
+				<li>Modern motherboards have error codes (either beeps or numbers on the board) that will tell you what is wrong, in some cases. Try looking for those signs.</li>
+				<li>If you get a message telling you there is nothing to boot, that's because you don't have an operating system.</li>
+			</ol>
+		<p>
+			If your PC comes on, great! You did it! Congrats on your first PC build! It likely wasn't easy for you, but you did it!
+		</p>
+	</main>
+</body>
+<!-- Displays the copyright information at the bottom of the page, separate from the rest of the text. -->
+<footer> 
+			Copyright &copy; 2017<br>
+			<a href="mailto:loganknipp@gmail.com">loganknipp@gmail.com</a>
+</footer>
+</div>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<!--
+		Final Project
+		Author: Logan Knipp
+		Date: 12-12-17
+		
+		Displays a form for contacting me with questions or suggestions.
+	-->
+	<title>Building a PC! - Contact Me</title>
+	<meta charset="utf-8">
+	<!-- Links the CSS file with the HTML file.  -->
+	<link rel="stylesheet" href="computer.css"> 
+</head>
+	
+	<!-- Uses the "wrapper" id from the CSS file to center the entire webpage.  -->
+	<div id="wrapper"> 
+	
+<body>
+	<!-- Displays a banner image at the top of the webpage, which has an image map attached.  -->
+	<header>
+		<img src="images/banner.png" id="banner" alt="Build a PC! logo" usemap="#bannermap">
+			<map name="bannermap">
+				<area shape="rect" coords="67,17,346,241" href="index.html" alt="Home">
+				<area shape="rect" coords="620,28,880,227" href="mypc.html" alt="Custom PC">
+			</map>
+	</header>
+	
+	 <!-- The navigation bar of the website, with links to each page.  -->
+	<nav>
+		<a href="index.html">Home</a> &nbsp; 
+		<a href="start.html">Start Building!</a> &nbsp; 
+		<a href="mypc.html">My Custom PC</a> &nbsp; 
+		<a href="about.html">About Me</a> &nbsp; 
+		<a href="contact.html">Contact Me</a>
+	</nav>
+	
+	<!-- The main section of the webpage, using a form to submit comments to me, with a input box for name, email, phone, and comments. -->
+	<main> 
+		<h2>Questions, Comments, Suggestions?</h2>
+		<h3>Contact Me!</h3>
+		<p>Required information is marked with an asterisk (*)</p>
+		<form method="post" action="">
+			<label for="myName">* Name:</label> 
+				<input type="text" name="myName" required="required">
+			<label for="myEmail">* Email:</label>
+				<input type="email" name="myEmail" required="required">
+			<label for="myPhone">Phone:</label>
+				<input type="tel" name="myPhone">
+			<label for="myComments">* Comments:</label>
+				<textarea name="myComments" cols="20" rows="2" required="required"></textarea>
+			<input type="submit" value="Submit" id="mySubmit">
+		</form>
+	</main>
+</body>
+<!-- Displays the copyright information at the bottom of the page, separate from the rest of the text. -->
+<footer> 
+			Copyright &copy; 2017<br>
+			<a href="mailto:loganknipp@gmail.com">loganknipp@gmail.com</a>
+</footer>
+</div>
+</html>

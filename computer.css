@@ -1,0 +1,211 @@
+/*
+
+Final Project
+Author: Logan Knipp
+Date: 12-12-17
+
+*/
+
+/* Modifies the body to change the background color, text color, and font. */
+body {  background-color: #DDDDDD; 
+		color: #666666;
+        font-family: Veranda, Arial, sans-serif;  }
+
+/* Modifies the header to change the background color, text color, and font. */		
+header { background-color: #000033; 
+		 color: #FFFFFF;
+		 font-family: Georgia, sans-serif; }
+
+/* Creates an id that will fix a gap between the nav and the banner, using a block display method. */
+#banner { display: block; 
+		  width: 100% }
+
+/* Modifies the navigation bar to bold the text and change the background color. */
+nav  {  height: 20px;
+		font-weight: bold;
+		background-color: #3566cc; 
+		padding: 10px; }
+
+/* Modifies links in the nav section, removing any decoration (underline) from the links. */
+a {  text-decoration: none; }
+nav a { padding-left: 5px; }
+		
+/* A pseudo-class that changes the color of links in the nav that have not been visited. */
+nav a:link    { color: #DDDDDD; }
+
+/* A pseudo-class that changes the color of links in the nav that have been visited. */
+nav a:visited { color: #BBBBBB; }
+
+/* A pseudo-class that changes the color of links in the nav when the cursor is over the link. */
+nav a:hover   { color: #FFFFFF; }
+
+/* A pseudo-class that changes the color of links in the tutorial page navigation box when the cursor is over the link. */
+ul a:hover   { color: #FFFFFF; }
+
+/* Modifies any h2 section to change the text color and the font. */			
+h2	 {  color: #1e53bf;
+		font-family: Helvetica, sans-serif; }
+	
+/* Modifies the footer to change the font size, italicize it, and then center the text. Also adds padding to the entire footer. */
+footer  { font-size: .70em;
+          font-style: italic; 
+		  text-align: center;
+		  padding: 10px; }
+		  
+/* Addresses compatibility with older browsers. */
+header, nav, main, footer { display: block; }
+
+/* Creates an id to be used once anywhere in the text, which will change the width of the section, as well as auto-configuring 
+the margins on the left and right side of the page, effectively centering anything it is applied to. */				  
+#wrapper {  background-color: #FFFFFF;
+			width: 80%;
+			margin-right: auto;
+			margin-left:  auto; 
+			min-width: 700px;
+			max-width: 1024px; }
+
+/* Modifies any h3 section to change the text color. */					
+h3	 { color: #000033; }
+
+/* Modifies the entire Main section to have padding on both sides of the screen. */		
+main { padding-left: 20px;
+       padding-right: 20px; 
+	   display: block;}
+
+/* Creates a class to be used on various images, which floats them to the left and adds other formatting. */
+.image1 {   height: 200px;
+			float: left; 
+			padding-right: 10px; 
+			padding-top: 10px; }
+
+/* Creates a class to be used on various images, which floats them to the right and adds other formatting. */			
+.image2 { height: 200px;
+		  float: right; 
+		  padding-left: 10px;
+		  padding-top: 10px; }
+		  
+/* Modifies the labels on the contact page. */
+label { float: left;
+		display: block;
+		width: 8em;
+		padding-right: 1em; }
+		
+/* Modifies the input and text area elements for the contact page form. */
+input, textarea { display: block;
+				  margin-bottom: 1em; }
+				  
+/* Creates an id for styling the submit button on the contact page. */
+#mySubmit { margin-left: 10em; }
+
+/* Creates an id for managing the navigation on the tutorial pages. Also adds a box-shadow to make the box stand out. */
+#tutorialnav { background-color: #DDDDDD;
+			   float: left;
+			   width: 180px; 
+			   height: 100%;
+			   padding: 5px;
+			   margin-right: 10px;
+			   text-decoration: none; 
+			   list-style-type: none; 
+			   box-shadow: 3px 3px 3px #828282;}
+			   
+/* Modifies the Navigation box on the tutorial pages, removing the bullets in the unordered list and removing padding or margins. */
+ul { 	 list-style-type: none; 
+		 padding: 0;
+		 margin: 0;  }
+
+/* Adds padding to the bottom of unordered lists, to add separation between each link in the Tutorial Navigation box. */
+ul li { padding-bottom: 5px; }
+
+/* Modifies the ordered lists on the tutorial pages to allow images to be floated to either side of them, with a hidden overflow to center the steps between the images. */
+ol {	padding-left: 25px;
+		overflow: hidden; }
+
+/* Adds padding between each numbered item in an ordered list for easier reading of tutorials. */
+ol li {	padding-bottom: 12px; }
+
+
+/* Styles table on the Start tutorial page and my Custom PC page, centering it in the middle of the page and creating the border around it. */
+table { width: 90%;
+		margin: auto;
+		border: 1px solid #1e53bf;;
+		border-collapse: collapse; }
+	  
+/* Pads and centers the text for the td element. Also creates a border. */
+td { padding: 5px;
+	 border: 1px solid #1e53bf;; 
+	 text-align: center; }
+
+/* Pads and creates a border for the th element. */
+th { padding: 5px;
+	 border: 1px solid #1e53bf;; }
+
+/* Creates a psuedo-class that will make every even numbered row a different color for easier reading. */
+tr:nth-of-type(even) { background-color: #F5FAFC; } 
+	   
+/* Media query that modifies various things for a smaller, touch screen on tablets. */
+@media only screen and (max-width: 1024px) {
+
+	body {  margin: 0px;
+			padding: 0px;
+			background-image: none;
+	}
+	#wrapper {  width: auto;
+				min-width: 0;
+				margin: 0;
+	}
+	h1 { margin: 0;
+	}
+	nav {   float: none;
+			width: auto;
+			padding: 0.5em;
+	}
+
+	nav a { padding: 1em;
+	}
+	main {  padding: 1em;
+			margin-left: 0;
+			font-size: 90%;
+	}
+	footer { margin: 0;
+	}
+}
+
+/* Media query that modifies various things for a smartphone screen. */
+@media only screen and (max-width: 768px)  {
+	h1 { height: 100%;
+		 font-size: 1.5em;
+		 padding-left: 0.3em; }
+		 
+	nav { padding: 0; 
+		  height: auto; }
+		  
+	nav a { display: block;
+			font-size: 1.3em;
+			border-bottom: 1px solid #330000; }
+	
+	main {  padding-top: 0.1em;
+			padding-right: 0.6em;
+			padding-bottom: 0.1em;
+			padding-left: 0.4em;  }
+	
+	table, ol, ul, p, label { font-size: 18px; }
+	
+	footer { padding: 0;}
+	
+	.image1 { float: none; }
+	
+	.image2 { float: none; }
+	
+	#banner { display: none; }
+	
+	#tutorialnav { background-color: #DDDDDD;
+					width: 180px; 
+					height: 100%;
+					padding: 5px;
+					margin-right: 10px;
+					text-decoration: none; 
+					list-style-type: none; 
+					font-size: 20px;
+					box-shadow: 3px 3px 3px #828282;}
+	
+}
