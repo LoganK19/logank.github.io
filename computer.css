@@ -73,8 +73,7 @@ main { padding-left: 20px;
 	   display: block;}
 
 /* Modifies fieldsets to not have borders. */
-fieldset {
-    border: 0;}
+fieldset { border: 0;}
 
 /* Creates a class to be used on various images, which floats them to the left and adds other formatting. */
 .image1 {   height: 200px;
