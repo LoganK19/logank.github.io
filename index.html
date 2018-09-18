@@ -54,8 +54,33 @@
 		   Please visit the <a href="start.html">"Start Building!"</a> page to begin, or visit the <a href="about.html">"About Me"</a> page for more information on myself. Send any comments through the <a href="contact.html">"Contact Me"</a> page.
 		   <br>
 		   <br>
-		   Good luck!</p>
+		   Good luck!
+		   <br>
+		   <br>
+		   Below is a calculator for determining whether or not you can afford a mid-range gaming PC, using the budget you think will be enough.</p>
+          <fieldset>
+            <label for="budget">
+              Budget for a PC:
+            </label>
+            <input type="number" id="budget" />
+          </fieldset>
+          <fieldset>
+            <button type="button" id="button">Calculate Remainder After PC</button>
+          </fieldset>
+          <fieldset>
+             <p>Minimum Money Remaining</p>
+            <p id="remain">0000</p>
+          </fieldset>
 	</main>
+	<script>
+		function calculate()
+		{
+			var budgetVal = document.getElementById("budget").value;
+			var remainVal = budgetVal - 800;
+			document.getElementById("remain").innerHTML = remainVal;
+		}
+		document.getElementById("button").addEventListener("click", calculate, false);
+	</script>
 </body>
 <!-- Displays the copyright information at the bottom of the page, separate from the rest of the text. -->
 <footer> 
