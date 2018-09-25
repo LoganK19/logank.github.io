@@ -100,7 +100,12 @@
 					document.getElementById("budgetMessage").innerHTML = "You have enough to build a mid-range gaming PC! Congratulations!";
 				}
 		}
-		document.getElementById("button").addEventListener("click", calculate, false);
+		if (document.getElementById("button").addEventListener) {
+			document.getElementById("button").addEventListener("click", calculate, false);
+		}
+		else {
+			document.getElementById("button").attachEvent("onclick", calculate);
+		}
 	</script>
 </body>
 <!-- Displays the copyright information at the bottom of the page, separate from the rest of the text. -->
