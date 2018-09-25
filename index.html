@@ -68,17 +68,37 @@
             <button type="button" id="button">Calculate Remainder After PC</button>
           </fieldset>
           <fieldset>
-             <p>Minimum Money Remaining</p>
-            <p id="remain">0000</p>
+             <p>Minimum Money Remaining:</p>
+            <p id="remain">$0</p>
+			<p id="budgetMessage"></p>
           </fieldset>
 	</main>
-	<!-- JavaScript to calculate the remaining funds after the user has spent their budget on a new PC. -->
 	<script>
+		//JavaScript to calculate the remaining funds after the user has spent their budget on a new PC.
 		function calculate()
 		{
-			var budgetVal = document.getElementById("budget").value;
-			var remainVal = budgetVal - 800;
-			document.getElementById("remain").innerHTML = remainVal;
+			//Creates an if-else statement that will throw a simple error if the budget entered in the textbox is a negative number.
+			if (document.getElementById("budget").value < 0)
+			{
+				document.getElementById("remain").innerHTML = "ERROR: Input a positive number and try again";
+			}
+			//The number $800 comes from my personal research into PC parts and determining the minimum required to build a decent modern gaming PC that isn't too flashy.
+			//This if statement checks to make sure the number is not under-budget. If it is, it will display a message telling the user they do not have enough.
+				if (document.getElementById("budget").value < 800)
+				{
+					var budgetVal = document.getElementById("budget").value;
+					var remainVal = budgetVal - 800;
+					document.getElementById("remain").innerHTML = "$" + remainVal;
+					document.getElementById("budgetMessage").innerHTML = "You do not have enough to build a mid-range gaming PC. Start saving up!";
+				}
+				//This else statement is run if the user has enough in their budget and displays a message congratulating the user.
+				else
+				{
+					var budgetVal = document.getElementById("budget").value;
+					var remainVal = budgetVal - 800;
+					document.getElementById("remain").innerHTML = "$" + remainVal;
+					document.getElementById("budgetMessage").innerHTML = "You have enough to build a mid-range gaming PC! Congratulations!";
+				}
 		}
 		document.getElementById("button").addEventListener("click", calculate, false);
 	</script>
