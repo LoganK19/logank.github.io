@@ -100,6 +100,7 @@
 					document.getElementById("budgetMessage").innerHTML = "You have enough to build a mid-range gaming PC! Congratulations!";
 				}
 		}
+		//Modifies code for IE8 compatibility. Changes addEventListener to attachEvent if needed.
 		if (document.getElementById("button").addEventListener) {
 			document.getElementById("button").addEventListener("click", calculate, false);
 		}
