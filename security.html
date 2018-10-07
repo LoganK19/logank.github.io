@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+	<!--
+		Author: Logan Knipp
+		
+		Displays a table that shows user PC information and then links to articles for security tips.
+	-->
+	<title>Building a PC! - My Custom PC</title>
+	<meta charset="utf-8">
+	<!-- Links the CSS file with the HTML file.  -->
+	<link rel="stylesheet" href="computer.css"> 
+	<!-- Links the JS file with the HTML file.  -->
+	<script src="modernizr.custom.05819.js"></script>
+</head>
+	
+	<!-- Uses the "wrapper" id from the CSS file to center the entire webpage.  -->
+	<div id="wrapper"> 
+	
+<body>
+	<!-- Displays a banner image at the top of the webpage, which has an image map attached.  -->
+	<header>
+		<img src="images/banner.png" id="banner" alt="Build a PC! logo" usemap="#bannermap">
+			<map name="bannermap">
+				<area shape="rect" coords="67,17,346,241" href="index.html" alt="Home">
+				<area shape="rect" coords="620,28,880,227" href="mypc.html" alt="Custom PC">
+			</map>
+	</header>
+	
+	 <!-- The navigation bar of the website, with links to each page.  -->
+	<nav>
+		<a href="index.html">Home</a> &nbsp; 
+		<a href="start.html">Start Building!</a> &nbsp; 
+		<a href="mypc.html">My Custom PC</a> &nbsp; 
+		<a href="about.html">About Me</a> &nbsp; 
+		<a href="contact.html">Contact Me</a>
+		<a href="security.html">Web Security Tips</a>
+	</nav>
+	
+	<!-- The main section of the webpage, using a table to display information on the user's browser. Ends with links to useful articles about web security.  -->
+	<main> 
+		<h2>Web Security</h2>
+		<p>Here, you will find information about your system. This is to help you understand just how much can be found about you from visiting a web page.
+		</p>
+		<table>
+			<tr>
+				<td>Property</td>
+				<td>Information</td>
+			</tr>
+			<tr>
+				<td>Web Browser Name</td>
+				<td id="browserName"></td>
+			</tr>
+			<tr>
+				<td>Web Browser Version</td>
+				<td id="versionNum"></td>
+			</tr>
+			<tr>
+				<td>Operating System</td>
+				<td id="operatingSystem"></td>
+			</tr>
+			<tr>
+				<td>Screen Width</td>
+				<td id="screenWidth"></td>
+			</tr>
+			<tr>
+				<td>Screen Height</td>
+				<td id="screenHeight"></td>
+			</tr>
+			<tr>
+				<td>Screen Pixel Depth</td>
+				<td id="screenPixelDepth"></td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<p>
+			Here are some articles with tips for staying secure online:
+			<br>
+			<br>
+			1. <a href="https://usa.kaspersky.com/resource-center/preemptive-safety/top-10-internet-safety-rules-and-what-not-to-do-online">Kaspersky Lab - Top 10 Internet Safety Rules & What Not to Do Online</a>
+			<br>
+			This article covers tons of subjects in relation to staying safe online, including browsing, privacy settings, downloads, shopping, and passwords. There is a lot of information here for general safety.
+			<br>
+			<br>
+			2. <a href="https://securingtomorrow.mcafee.com/consumer/consumer-threat-notices/10-tips-stay-safe-online/">McAfee - 10 Tips To Stay Safe Online</a>
+			<br>
+			This article covers similar topics to the first, though it also has information that was not covered in the first, such as firewalls and VPNs.
+			<br>
+			<br>
+			3. <a href="https://support.mozilla.org/en-US/kb/how-stay-safe-web">Mozilla - How to stay safe on the web</a>
+			<br>
+			This article will help users that use Firefox make sure that they remain safe while using the browser. This information almost entirely applies to only Firefox users, but there are some general tips at the bottom of the page.
+		</p>
+	</main>
+	<script>
+		// The JavaScript for getting the user information that is displayed in the table.
+		var browser = navigator.appName;
+		var version = navigator.appVersion;
+		var operatingSys = navigator.platform;
+		var height = screen.height;
+		var width = screen.width;
+		var pixelDepth = screen.pixelDepth;
+		
+		// The code for inserting the user information into the table.
+		document.getElementById("browserName").innerHTML = browser;
+		document.getElementById("versionNum").innerHTML = version;
+		document.getElementById("operatingSystem").innerHTML = operatingSys;
+		document.getElementById("screenHeight").innerHTML = height;
+		document.getElementById("screenWidth").innerHTML = width;
+		document.getElementById("screenPixelDepth").innerHTML = pixelDepth;
+	</script>
+</body>
+<!-- Displays the copyright information at the bottom of the page, separate from the rest of the text. -->
+<footer> 
+			Copyright &copy; 2017<br>
+			<a href="mailto:loganknipp@gmail.com">loganknipp@gmail.com</a>
+</footer>
+</div>
+</html>
