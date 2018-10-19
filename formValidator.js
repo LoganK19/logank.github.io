@@ -4,9 +4,7 @@
 */
 
 //Checks for exceptions when the Calculate button is clicked on the page.
-function eventListener()
-{
-if (document.getElementById("submit").addEventListener) 
+	if (document.getElementById("submit").addEventListener) 
 	{
 		document.getElementById("submit").addEventListener("click", formSubmit, false);
 	}
@@ -14,15 +12,13 @@ if (document.getElementById("submit").addEventListener)
 	{
 		document.getElementById("submit").attachEvent("onclick", formSubmit);
 	}
-}
-
+	
 function formSubmit()
 {
-	if (formValidity() == false)
+	formValidity();
+	if (formValidity() )
 	{
-		
-	}
-	else {
+		document.getElementById("errorText").innerHTML = "Submitted!"; 
 		document.forms["contact"].submit();
 	}
 }
