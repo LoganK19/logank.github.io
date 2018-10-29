@@ -4,9 +4,9 @@
 	<!--
 		Author: Logan Knipp
 		
-		Displays a form for contacting me with questions or suggestions.
+		Displays a form for calculating time passed since a user's inputted date.
 	-->
-	<title>Building a PC! - Contact Me</title>
+	<title>Building a PC! - Time Passed Calculator</title>
 	<meta charset="utf-8">
 	<!-- Links the CSS file with the HTML file.  -->
 	<link rel="stylesheet" href="computer.css"> 
@@ -38,33 +38,24 @@
 		<a href="time.html">Time Passed Calculator</a>
 	</nav>
 	
-	<!-- The main section of the webpage, using a form to submit comments to me, with a input box for name, email, phone, and comments. -->
+	<!-- The main section of the webpage, using a form to calculate time passed. -->
 	<main> 
-		<h2>Questions, Comments, Suggestions?</h2>
-		<h3>Contact Me!</h3>
-		<p>Please fill out all fields.</p>
-		<form name="contact" method="post">
-			<label for="name">Name:</label> 
-				<input type="text" name="name">
-			<label for="email">Email:</label>
-				<input type="text" name="email">
-			<label for="gender">Gender:</label>
-				<select name="gender">
-					<option>Male</option>
-					<option>Female</option>
-					<option>Other</option>
-				</select>
-				<br>
-				<br>
-			<label for="age">Age:</label>
-				<input type="text" name="age">
-			<label for="comments">Comments:</label>
-				<textarea name="comments" cols="20" rows="2"></textarea>
-			<input type="button" value="Submit" id="submit">
+		<h2>Time Passed Calculator</h2>
+		<p>Please enter a PAST date and press Calculate to find out how much time has passed since that date.</p>
+		<form name="time">
+			<label for="day">Day:</label> 
+				<input type="text" name="day">
+			<label for="month">Month (use numerical format):</label>
+				<input type="text" name="month">
+			<br>
+			<br>
+			<label for="year">Year:</label>
+				<input type="text" name="year">
+			<input type="button" value="Calculate" id="calculate">
 		</form>
-		<p id="errorText"></p>
+		<p id="message"></p>
 	</main>
-	<script src="formValidator.js"></script>
+	<script src="timePassed.js"></script>
 </body>
 <!-- Displays the copyright information at the bottom of the page, separate from the rest of the text. -->
 <footer> 
