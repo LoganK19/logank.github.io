@@ -3,6 +3,8 @@
 	JavaScript to validate the fields on my Contact form.
 */
 
+var usageArray = [];
+
 //Creates compatibility with IE8 and older.
 	if (document.getElementById("submit").addEventListener) 
 	{
@@ -12,7 +14,22 @@
 	{
 		document.getElementById("submit").attachEvent("onclick", formSubmit);
 	}
-
+	
+//Creates the EventListeners for the checkboxes, with IE8 support
+	var usages = document.getElementsByName("pcUsage");
+	if (usages[0].addEventListener) 
+	{
+      for (var i = 0; i < usages.length; i++) 
+	  {
+         usages[i].addEventListener("change", usageToArray, false);
+      }
+	} else if (usages[0].attachEvent) 
+		{
+			for (var i = 0; i < usages.length; i++) 
+			{
+				usages[i].attachEvent("onchange", usageToArray);
+			}
+		}
 //The main function that runs when you click the Submit button. Submits form if validation is passed.
 function formSubmit()
 {
@@ -20,6 +37,16 @@ function formSubmit()
 	if (formValidity() )
 	{
 		document.getElementById("errorText").innerHTML = "Submitted!"; 
+		//if user did not select a usage type, display appropriate message.
+		if (usageArray === undefined || usageArray == 0)
+		{
+			document.getElementById("arrayDisplay").innerHTML = "You selected no usage type.";
+		}
+		//else, if user did select a usage type, display the array converted to a string.
+		else
+		{
+			document.getElementById("arrayDisplay").innerHTML = "You selected " + usageArray.toString();
+		}
 		document.forms["contact"].submit();
 	}
 }
@@ -103,4 +130,29 @@ function formValidity()
     }
 	
 	return true;
+}
+
+//The function that handles the array of the checkboxes.
+function usageToArray(event) 
+{
+   if (event === undefined) 
+   { // get caller element in IE8
+      event = window.event;
+   }
+   var callerElement = event.target || event.srcElement;
+   var usageName = callerElement.value;
+   if (callerElement.checked) 
+   { //if a box was checked
+	usageArray.push(callerElement.value);
+   } 
+   else //if a box was unchecked
+   { 
+		//for loop that goes through the array and removes elements that were unchecked
+      for (var i = 0; i < usageArray.length; i++) {
+         if (usageName === usageArray[i].toString()) 
+		 {
+			usageArray.splice(i, 1);
+         }
+      }
+   }
 }

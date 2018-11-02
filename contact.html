@@ -60,9 +60,28 @@
 				<input type="text" name="age">
 			<label for="comments">Comments:</label>
 				<textarea name="comments" cols="20" rows="2"></textarea>
-			<input type="button" value="Submit" id="submit">
+			<fieldset class="checks" id="usages">
+				<legend>What are you using your PC for?</legend>
+				<label for="gaming" id="gamingLabel">Gaming</label>
+					<input type="checkbox" id="gaming" value="Gaming" name="pcUsage">
+				<label for="web" id="webLabel">Web Browsing</label>
+					<input type="checkbox" id="web" value="Web Browsing" name="pcUsage">
+				<label for="media" id="mediaLabel">Media</label>
+					<input type="checkbox" id="media" value="Media" name="pcUsage">
+				<br>
+				<label for="office" id="officeLabel">Office Work</label>
+					<input type="checkbox" id="office" value="Office Work" name="pcUsage">
+				<br>
+				<br>
+				<label for="content" id="contentLabel">Content Creation</label>
+					<input type="checkbox" id="content" value="Content Creation" name="pcUsage">
+				<br>
+				<br>
+				<input type="button" value="Submit" id="submit">
+         </fieldset>
 		</form>
 		<p id="errorText"></p>
+		<p id="arrayDisplay"></p>
 	</main>
 	<script src="formValidator.js"></script>
 </body>
