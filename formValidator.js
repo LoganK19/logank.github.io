@@ -5,6 +5,9 @@
 
 var usageArray = [];
 
+//variable to store regular expression used to find malicious characters
+var maliciousRemoval = /[\])}[{(<>]/g;
+
 //Creates compatibility with IE8 and older.
 	if (document.getElementById("submit").addEventListener) 
 	{
@@ -58,13 +61,41 @@ function formValidity()
 	var name = document.forms["contact"]["name"];               
     var email = document.forms["contact"]["email"];      
     var age =  document.forms["contact"]["age"];  
-    var comment = document.forms["contact"]["comments"];    
+    var comment = document.forms["contact"]["comments"];
    
    //Resets all fields to default color
    name.style.background = "white"
    email.style.background = "white"
    age.style.background = "white"
    comment.style.background = "white"
+   
+   
+   //Displays error if Name field contains potentially malicious characters
+   if (maliciousRemoval.test(name.value) == true)
+   {
+		document.getElementById("errorText").innerHTML = "Please enter your name."; 
+        name.style.background = "rgb(255,233,233)"
+		name.focus(); 
+        return false; 
+   }
+ 
+   //Displays error if Email field contains potentially malicious characters
+   if (maliciousRemoval.test(email.value) == true)
+   {
+		document.getElementById("errorText").innerHTML = "Please enter a valid e-mail address."; 
+        email.style.background = "rgb(255,233,233)"
+		email.focus(); 
+        return false; 
+   }
+   
+   //Displays error if Comment field contains potentially malicious characters
+   if (maliciousRemoval.test(comment.value) == true)
+   {
+		document.getElementById("errorText").innerHTML = "Please enter a comment, suggestion, or question."; 
+        comment.style.background = "rgb(255,233,233)"
+		comment.focus(); 
+        return false; 
+   }
    
    //Displays error if the Name field is empty.
     if (name.value == "")                                  
