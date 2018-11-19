@@ -144,6 +144,13 @@ th { padding: 5px;
 
 /* Creates a psuedo-class that will make every even numbered row a different color for easier reading. */
 tr:nth-of-type(even) { background-color: #F5FAFC; } 
+
+/* Styles the map on the security page. */
+#map {
+   min-height: 300px;
+   width: 100%;
+   float: left;
+}
 	   
 /* Media query that modifies various things for a smaller, touch screen on tablets. */
 @media only screen and (max-width: 1024px) {

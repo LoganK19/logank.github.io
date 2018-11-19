@@ -41,7 +41,7 @@
 	<!-- The main section of the webpage, using a table to display information on the user's browser. Ends with links to useful articles about web security.  -->
 	<main> 
 		<h2>Web Security</h2>
-		<p>Here, you will find information about your system. This is to help you understand just how much can be found about you from visiting a web page.
+		<p>Here, you will find information about your system and even your location. This is to help you understand just how much can be found about you from visiting a web page.
 		</p>
 		<table>
 			<tr>
@@ -72,9 +72,21 @@
 				<td>Screen Pixel Depth</td>
 				<td id="screenPixelDepth"></td>
 			</tr>
+			<tr>
+				<td>Latitude</td>
+				<td id="latitude"></td>
+			</tr>
+			<tr>
+				<td>Longitude</td>
+				<td id="longitude"></td>
+			</tr>
+			<tr>
+				<td>Altitude</td>
+				<td id="altitude"></td>
+			</tr>
 		</table>
 		<br>
-		<br>
+		<div id="map"></div>
 		<p>
 			Here are some articles with tips for staying secure online:
 			<br>
@@ -94,23 +106,9 @@
 			This article will help users that use Firefox make sure that they remain safe while using the browser. This information almost entirely applies to only Firefox users, but there are some general tips at the bottom of the page.
 		</p>
 	</main>
-	<script>
-		// The JavaScript for getting the user information that is displayed in the table, which is put into variables for ease of use.
-		var browser = navigator.appName;
-		var version = navigator.appVersion;
-		var operatingSys = navigator.platform;
-		var height = screen.height;
-		var width = screen.width;
-		var pixelDepth = screen.pixelDepth;
-		
-		// The code for inserting the user information into the table.
-		document.getElementById("browserName").innerHTML = browser;
-		document.getElementById("versionNum").innerHTML = version;
-		document.getElementById("operatingSystem").innerHTML = operatingSys;
-		document.getElementById("screenHeight").innerHTML = height;
-		document.getElementById("screenWidth").innerHTML = width;
-		document.getElementById("screenPixelDepth").innerHTML = pixelDepth;
-	</script>
+	<script src="security.js"></script>
+	<!-- Links the Google Maps API to the page -->
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhv8hnMP6IboEJqXC2UHZF2FORE357v-E&callback=geoTest"></script>
 </body>
 <!-- Displays the copyright information at the bottom of the page, separate from the rest of the text. -->
 <footer> 
