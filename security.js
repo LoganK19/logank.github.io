@@ -10,6 +10,7 @@ var operatingSys = navigator.platform;
 var height = screen.height;
 var width = screen.width;
 var pixelDepth = screen.pixelDepth;
+var openWeatherMapKey = 88fb1e4fad361f4699206f893cbf6ea3;
 
 // The code for inserting the user information into the table.
 document.getElementById("browserName").innerHTML = browser;
@@ -19,7 +20,9 @@ document.getElementById("screenHeight").innerHTML = height;
 document.getElementById("screenWidth").innerHTML = width;
 document.getElementById("screenPixelDepth").innerHTML = pixelDepth;
 
-// OPENWEATHER STARTS HERE
+
+// OPENWEATHER BEGINS HERE
+
 var getWeather = function(northLat, eastLng, southLat, westLng) {
     gettingData = true;
     var requestString = "http://api.openweathermap.org/data/2.5/box/city?bbox="
@@ -27,7 +30,7 @@ var getWeather = function(northLat, eastLng, southLat, westLng) {
                         + eastLng + "," + southLat + "," //right bottom
                         + map.getZoom()
                         + "&cluster=yes&format=json"
-                        + "&APPID=" + "88fb1e4fad361f4699206f893cbf6ea3";
+                        + "&APPID=" + openWeatherMapKey;
     request = new XMLHttpRequest();
     request.onload = proccessResults;
     request.open("get", requestString, true);
@@ -68,8 +71,9 @@ var getWeather = function(northLat, eastLng, southLat, westLng) {
         type: "Point",
         coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
       }
-    };
-	
+	}
+};
+
 // OPENWEATHER ENDS HERE
 
 //Tests to see if Geolocation is allowed.
