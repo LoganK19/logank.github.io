@@ -10,7 +10,7 @@ var operatingSys = navigator.platform;
 var height = screen.height;
 var width = screen.width;
 var pixelDepth = screen.pixelDepth;
-var weatherOpenMapKey = "88fb1e4fad361f4699206f893cbf6ea3";
+var openWeatherMapKey = "88fb1e4fad361f4699206f893cbf6ea3";
 
 // The code for inserting the user information into the table.
 document.getElementById("browserName").innerHTML = browser;
@@ -23,55 +23,7 @@ document.getElementById("screenPixelDepth").innerHTML = pixelDepth;
 
 // OPENWEATHER BEGINS HERE
 
-var getWeather = function(northLat, eastLng, southLat, westLng) {
-    gettingData = true;
-    var requestString = "http://api.openweathermap.org/data/2.5/box/city?bbox="
-                        + westLng + "," + northLat + "," //left top
-                        + eastLng + "," + southLat + "," //right bottom
-                        + map.getZoom()
-                        + "&cluster=yes&format=json"
-                        + "&APPID=" + weatherOpenMapKey;
-    request = new XMLHttpRequest();
-    request.onload = proccessResults;
-    request.open("get", requestString, true);
-    request.send();
-  };
-  
-  var proccessResults = function() {
-    console.log(this);
-    var results = JSON.parse(this.responseText);
-    if (results.list.length > 0) {
-        resetData();
-        for (var i = 0; i < results.list.length; i++) {
-          geoJSON.features.push(jsonToGeoJson(results.list[i]));
-        }
-        drawIcons(geoJSON);
-    }
-  };
-  
-var jsonToGeoJson = function (weatherItem) {
-    var feature = {
-      type: "Feature",
-      properties: {
-        city: weatherItem.name,
-        weather: weatherItem.weather[0].main,
-        temperature: weatherItem.main.temp,
-        min: weatherItem.main.temp_min,
-        max: weatherItem.main.temp_max,
-        humidity: weatherItem.main.humidity,
-        pressure: weatherItem.main.pressure,
-        windSpeed: weatherItem.wind.speed,
-        windDegrees: weatherItem.wind.deg,
-        windGust: weatherItem.wind.gust,
-        icon: "http://openweathermap.org/img/w/"
-              + weatherItem.weather[0].icon  + ".png",
-        coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
-      },
-    };
-    // Set the custom marker icon
-    // returns object
-    return feature;
-  };
+
 
 // OPENWEATHER ENDS HERE
 
@@ -128,10 +80,12 @@ function createMap(position)
           }
         });
 		
+	var weather = getWeather(currPosLat, currPosLng);
+	console.log(weather);
 	//Displays the Latitude and Longitude
 	document.getElementById("latitude").innerHTML = currPosLat;
 	document.getElementById("longitude").innerHTML = currPosLng;
-	document.getElementById("temperature").innerHTML = jsonToGeoJson.city;
+	document.getElementById("temperature").innerHTML = temperature;
 }
 
 //Displays error message if Geolocation cannot be used.
@@ -140,6 +94,16 @@ function fail()
 	document.getElementById("map").innerHTML = "Unable to access your location.";
 }
 
+function getWeather(latitude, longitude) {
+    var requestString = "http://api.openweathermap.org/data/2.5/weather?"
+                        + "lat=" + latitude + "&" + "lon=" + longitude + "&units=imperial"
+                        + "&APPID=" + openWeatherMapKey;
+    request = new XMLHttpRequest();
+    request.open("get", requestString, true);
+    request.send();
+	var weather = JSON.parse(request.responseText);
+	return weather;
+}
 
 	
 	
