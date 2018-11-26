@@ -20,16 +20,6 @@ document.getElementById("screenHeight").innerHTML = height;
 document.getElementById("screenWidth").innerHTML = width;
 document.getElementById("screenPixelDepth").innerHTML = pixelDepth;
 
-
-// OPENWEATHER BEGINS HERE
-
-function getWeather(latitude, longitude) {
-
-	return weatherData;
-}
-
-// OPENWEATHER ENDS HERE
-
 //Tests to see if Geolocation is allowed.
 function geoTest()
 {
@@ -85,7 +75,7 @@ function createMap(position)
 	
 	// !! CHAPTER 11 ASSIGNMENT CHANGES !!
 	// Stores API url for the user location to a string
-	var requestString = "http://api.openweathermap.org/data/2.5/weather?"
+	var requestString = "https://api.openweathermap.org/data/2.5/weather?"
 					+ "lat=" + currPosLat + "&" + "lon=" + currPosLng + "&units=imperial"
 					+ "&APPID=" + openWeatherMapKey;
 	//Creates new Request object
