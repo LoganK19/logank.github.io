@@ -10,7 +10,6 @@ var operatingSys = navigator.platform;
 var height = screen.height;
 var width = screen.width;
 var pixelDepth = screen.pixelDepth;
-var openWeatherMapKey = 88fb1e4fad361f4699206f893cbf6ea3;
 
 // The code for inserting the user information into the table.
 document.getElementById("browserName").innerHTML = browser;
@@ -30,7 +29,7 @@ var getWeather = function(northLat, eastLng, southLat, westLng) {
                         + eastLng + "," + southLat + "," //right bottom
                         + map.getZoom()
                         + "&cluster=yes&format=json"
-                        + "&APPID=" + openWeatherMapKey;
+                        + "&APPID=" + "88fb1e4fad361f4699206f893cbf6ea3";
     request = new XMLHttpRequest();
     request.onload = proccessResults;
     request.open("get", requestString, true);
