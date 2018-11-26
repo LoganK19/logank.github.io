@@ -131,7 +131,7 @@ function createMap(position)
 	//Displays the Latitude and Longitude
 	document.getElementById("latitude").innerHTML = currPosLat;
 	document.getElementById("longitude").innerHTML = currPosLng;
-	document.getElementById("temperature").innerHTML = jsonToGetJson.feature.temperature;
+	document.getElementById("temperature").innerHTML = jsonToGeoJson.feature.temperature;
 }
 
 //Displays error message if Geolocation cannot be used.
