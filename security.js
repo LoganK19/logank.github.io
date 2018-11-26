@@ -19,6 +19,59 @@ document.getElementById("screenHeight").innerHTML = height;
 document.getElementById("screenWidth").innerHTML = width;
 document.getElementById("screenPixelDepth").innerHTML = pixelDepth;
 
+// OPENWEATHER STARTS HERE
+var getWeather = function(northLat, eastLng, southLat, westLng) {
+    gettingData = true;
+    var requestString = "http://api.openweathermap.org/data/2.5/box/city?bbox="
+                        + westLng + "," + northLat + "," //left top
+                        + eastLng + "," + southLat + "," //right bottom
+                        + map.getZoom()
+                        + "&cluster=yes&format=json"
+                        + "&APPID=" + "88fb1e4fad361f4699206f893cbf6ea3";
+    request = new XMLHttpRequest();
+    request.onload = proccessResults;
+    request.open("get", requestString, true);
+    request.send();
+  };
+  
+  var proccessResults = function() {
+    console.log(this);
+    var results = JSON.parse(this.responseText);
+    if (results.list.length > 0) {
+        resetData();
+        for (var i = 0; i < results.list.length; i++) {
+          geoJSON.features.push(jsonToGeoJson(results.list[i]));
+        }
+        drawIcons(geoJSON);
+    }
+  };
+  
+  var jsonToGeoJson = function (weatherItem) {
+    var feature = {
+      type: "Feature",
+      properties: {
+        city: weatherItem.name,
+        weather: weatherItem.weather[0].main,
+        temperature: weatherItem.main.temp,
+        min: weatherItem.main.temp_min,
+        max: weatherItem.main.temp_max,
+        humidity: weatherItem.main.humidity,
+        pressure: weatherItem.main.pressure,
+        windSpeed: weatherItem.wind.speed,
+        windDegrees: weatherItem.wind.deg,
+        windGust: weatherItem.wind.gust,
+        icon: "http://openweathermap.org/img/w/"
+              + weatherItem.weather[0].icon  + ".png",
+        coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
+      }
+    };
+	
+// OPENWEATHER ENDS HERE
+
 //Tests to see if Geolocation is allowed.
 function geoTest()
 {
@@ -75,6 +128,7 @@ function createMap(position)
 	//Displays the Latitude and Longitude
 	document.getElementById("latitude").innerHTML = currPosLat;
 	document.getElementById("longitude").innerHTML = currPosLng;
+	document.getElementById("temperature").innerHTML = jsonToGetJson.feature.temperature;
 }
 
 //Displays error message if Geolocation cannot be used.
@@ -83,3 +137,6 @@ function fail()
 	document.getElementById("map").innerHTML = "Unable to access your location.";
 }
 
+
+	
+	
