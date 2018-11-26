@@ -23,7 +23,10 @@ document.getElementById("screenPixelDepth").innerHTML = pixelDepth;
 
 // OPENWEATHER BEGINS HERE
 
+function getWeather(latitude, longitude) {
 
+	return weatherData;
+}
 
 // OPENWEATHER ENDS HERE
 
@@ -79,13 +82,32 @@ function createMap(position)
             document.getElementById("altitude").innerHTML = "Elevation service failed due to: " + status;
           }
         });
-		
-	var weather = getWeather(currPosLat, currPosLng);
-	console.log(weather);
+	
+	// !! CHAPTER 11 ASSIGNMENT CHANGES !!
+	// Stores API url for the user location to a string
+	var requestString = "http://api.openweathermap.org/data/2.5/weather?"
+					+ "lat=" + currPosLat + "&" + "lon=" + currPosLng + "&units=imperial"
+					+ "&APPID=" + openWeatherMapKey;
+	//Creates new Request object
+    var weatherRequest = new XMLHttpRequest();
+	//Gets the JSON from the URL and sends to null
+    weatherRequest.open("get", requestString, true);
+    weatherRequest.send(null);
+	
+	//Inner function that checks the readyState and the status of the JSON
+	weatherRequest.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+		//Parses the JSON information to a variable
+		 var weatherData = JSON.parse(this.responseText);
+		 //Inserts the temperature data to the table in fahrenheit
+		 document.getElementById("temperature").innerHTML = weatherData.main.temp + " F";
+		}
+	};
+	// !! END CHAPTER 11 CHANGES !!
+	
 	//Displays the Latitude and Longitude
 	document.getElementById("latitude").innerHTML = currPosLat;
 	document.getElementById("longitude").innerHTML = currPosLng;
-	document.getElementById("temperature").innerHTML = temperature;
 }
 
 //Displays error message if Geolocation cannot be used.
@@ -93,17 +115,5 @@ function fail()
 {
 	document.getElementById("map").innerHTML = "Unable to access your location.";
 }
-
-function getWeather(latitude, longitude) {
-    var requestString = "http://api.openweathermap.org/data/2.5/weather?"
-                        + "lat=" + latitude + "&" + "lon=" + longitude + "&units=imperial"
-                        + "&APPID=" + openWeatherMapKey;
-    request = new XMLHttpRequest();
-    request.open("get", requestString, true);
-    request.send();
-	var weather = JSON.parse(request.responseText);
-	return weather;
-}
-
 	
 	
