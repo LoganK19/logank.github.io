@@ -10,6 +10,7 @@ var operatingSys = navigator.platform;
 var height = screen.height;
 var width = screen.width;
 var pixelDepth = screen.pixelDepth;
+var weatherOpenMapKey = "88fb1e4fad361f4699206f893cbf6ea3";
 
 // The code for inserting the user information into the table.
 document.getElementById("browserName").innerHTML = browser;
@@ -29,7 +30,7 @@ var getWeather = function(northLat, eastLng, southLat, westLng) {
                         + eastLng + "," + southLat + "," //right bottom
                         + map.getZoom()
                         + "&cluster=yes&format=json"
-                        + "&APPID=" + "88fb1e4fad361f4699206f893cbf6ea3";
+                        + "&APPID=" + weatherOpenMapKey;
     request = new XMLHttpRequest();
     request.onload = proccessResults;
     request.open("get", requestString, true);
@@ -48,7 +49,7 @@ var getWeather = function(northLat, eastLng, southLat, westLng) {
     }
   };
   
-  var jsonToGeoJson = function (weatherItem) {
+var jsonToGeoJson = function (weatherItem) {
     var feature = {
       type: "Feature",
       properties: {
@@ -66,12 +67,11 @@ var getWeather = function(northLat, eastLng, southLat, westLng) {
               + weatherItem.weather[0].icon  + ".png",
         coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
       },
-      geometry: {
-        type: "Point",
-        coordinates: [weatherItem.coord.Lon, weatherItem.coord.Lat]
-      }
-	}
-};
+    };
+    // Set the custom marker icon
+    // returns object
+    return feature;
+  };
 
 // OPENWEATHER ENDS HERE
 
@@ -131,7 +131,7 @@ function createMap(position)
 	//Displays the Latitude and Longitude
 	document.getElementById("latitude").innerHTML = currPosLat;
 	document.getElementById("longitude").innerHTML = currPosLng;
-	document.getElementById("temperature").innerHTML = weatherItem.main.temp;
+	document.getElementById("temperature").innerHTML = jsonToGeoJson.city;
 }
 
 //Displays error message if Geolocation cannot be used.
