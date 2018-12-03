@@ -64,99 +64,176 @@ function formValidity()
     var comment = document.forms["contact"]["comments"];
    
    //Resets all fields to default color
-   name.style.background = "white"
-   email.style.background = "white"
-   age.style.background = "white"
-   comment.style.background = "white"
+   /*
+	   name.style.background = "white"
+	   email.style.background = "white"
+	   age.style.background = "white"
+	   comment.style.background = "white"
+   */
    
+   //Resets all fields to default color, using jQuery
+   $(name).css("background-color","white");
+   $(email).css("background-color","white")
+   $(age).css("background-color","white")
+   $(comment).css("background-color","white")
    
    //Displays error if Name field contains potentially malicious characters
    if (maliciousRemoval.test(name.value) == true)
    {
+	   /* 
 		document.getElementById("errorText").innerHTML = "Please enter your name."; 
         name.style.background = "rgb(255,233,233)"
 		name.focus(); 
+	   */
+	   
+	   //Same as above comment, but with jQuery
+		$("#errorText").html("Please enter your name."); 
+		$(name).css("background-color","rgb(255,233,233)")
+		$(name).focus(); 
         return false; 
    }
  
    //Displays error if Email field contains potentially malicious characters
    if (maliciousRemoval.test(email.value) == true)
    {
+	   /* 
 		document.getElementById("errorText").innerHTML = "Please enter a valid e-mail address."; 
         email.style.background = "rgb(255,233,233)"
 		email.focus(); 
+	   */
+	   
+	   //Same as above comment, but with jQuery
+        $("#errorText").html("Please enter a valid e-mail address."); 
+		$(email).css("background-color","rgb(255,233,233)")
+		$(email).focus(); 
         return false; 
    }
    
    //Displays error if Comment field contains potentially malicious characters
    if (maliciousRemoval.test(comment.value) == true)
    {
+	   /* 
 		document.getElementById("errorText").innerHTML = "Please enter a comment, suggestion, or question."; 
         comment.style.background = "rgb(255,233,233)"
 		comment.focus(); 
+	   */
+	   
+	   //Same as above comment, but with jQuery
+		$("#errorText").html("Please enter a comment, suggestion, or question."); 
+        $(comment).css("background-color","rgb(255,233,233)")
+		$(comment).focus(); 
         return false; 
    }
    
    //Displays error if the Name field is empty.
     if (name.value == "")                                  
     { 
-        document.getElementById("errorText").innerHTML = "Please enter your name."; 
-        name.style.background = "rgb(255,233,233)"
-		name.focus(); 
+		/* 
+		 document.getElementById("errorText").innerHTML = "Please enter your name."; 
+         name.style.background = "rgb(255,233,233)"
+		 name.focus(); 
+		*/
+		
+		//Same as above comment, but with jQuery
+        $("#errorText").html("Please enter your name."); 
+        $(name).css("background-color","rgb(255,233,233)")
+		$(name).focus(); 
         return false; 
     } 
 	
 	//Displays error if the Email field is empty.
 	if (email.value == "")                                   
     { 
-        document.getElementById("errorText").innerHTML = "Please enter a valid e-mail address."; 
-		email.style.background = "rgb(255,233,233)"
-        email.focus(); 
+		/* 
+		 document.getElementById("errorText").innerHTML = "Please enter a valid e-mail address."; 
+		 email.style.background = "rgb(255,233,233)"
+         email.focus(); 
+		*/
+		
+		//Same as above comment, but with jQuery
+        $("#errorText").html("Please enter a valid e-mail address."); 
+		$(email).css("background-color","rgb(255,233,233)")
+		$(email).focus(); 
         return false; 
     } 
 	
 	//Displays error if the Email field does not contain an @ symbol.
     if (email.value.indexOf("@", 0) < 0)                 
     { 
-        document.getElementById("errorText").innerHTML = "Please enter a valid e-mail address."; 
-		email.style.background = "rgb(255,233,233)"
-        email.focus(); 
+		/* 
+		 document.getElementById("errorText").innerHTML = "Please enter a valid e-mail address."; 
+		 email.style.background = "rgb(255,233,233)"
+         email.focus(); 
+		*/
+		
+		//Same as above comment, but with jQuery
+        $("#errorText").html("Please enter a valid e-mail address."); 
+		$(email).css("background-color","rgb(255,233,233)")
+		$(email).focus(); 
         return false; 
     } 
 	
 	//Displays error if the Email field does not contain a dot symbol.
     if (email.value.indexOf(".", 0) < 0)                 
     { 
-        document.getElementById("errorText").innerHTML = "Please enter a valid e-mail address."; 
-		email.style.background = "rgb(255,233,233)"
-        email.focus(); 
+		/* 
+		 document.getElementById("errorText").innerHTML = "Please enter a valid e-mail address."; 
+		 email.style.background = "rgb(255,233,233)"
+         email.focus(); 
+		*/
+		
+		//Same as above comment, but with jQuery
+        $("#errorText").html("Please enter a valid e-mail address."); 
+		$(email).css("background-color","rgb(255,233,233)")
+		$(email).focus(); 
         return false; 
     } 
    
 	//Displays error if the Age field is empty or contains anything other than numbers.
     if (age.value == "" || isNaN(age.value))                               
     { 
-        document.getElementById("errorText").innerHTML = "Please enter your age."; 
-        age.style.background = "rgb(255,233,233)"
-		age.focus(); 
+		/* 
+		 document.getElementById("errorText").innerHTML = "Please enter your age."; 
+         age.style.background = "rgb(255,233,233)"
+		 age.focus(); 
+		*/
+		
+		//Same as above comment, but with jQuery
+        $("#errorText").html("Please enter your age."); 
+        $(age).css("background-color","rgb(255,233,233)")
+		$(age).focus(); 
         return false; 
     } 
 	
 	//Displays error if the Age field is under 13 years old.
 	if (age.value < 13)
 	{
-		document.getElementById("errorText").innerHTML = "You must be at least 13";
-		age.style.background = "rgb(255,233,233)"
-		age.focus();
+		/* 
+		 document.getElementById("errorText").innerHTML = "You must be at least 13";
+		 age.style.background = "rgb(255,233,233)"
+		 age.focus();
+		*/
+		
+		//Same as above comment, but with jQuery
+		$("#errorText").html("You must be at least 13");
+		$(age).css("background-color","rgb(255,233,233)")
+		$(age).focus(); 
 		return false;
 	}
 	
 	//Displays error if the Comments field is empty.
 	if (comment.value == "")                        
     { 
-        document.getElementById("errorText").innerHTML = "Please enter a comment, suggestion, or question."; 
-		comment.style.background = "rgb(255,233,233)"
-        comment.focus(); 
+		/* 
+         document.getElementById("errorText").innerHTML = "Please enter a comment, suggestion, or question."; 
+		 comment.style.background = "rgb(255,233,233)"
+         comment.focus(); 
+		*/
+		
+		//Same as above comment, but with jQuery
+        $("#errorText").html("Please enter a comment, suggestion, or question."); 
+		$(comment).css("background-color","rgb(255,233,233)")
+		$(comment).focus(); 
         return false; 
     }
 	
